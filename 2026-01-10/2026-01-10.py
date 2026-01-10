@@ -5,9 +5,9 @@ class ReLu:
         self.mask = None
     
     def forward(self,x):
-        self.mask = (x <= 0)
+        self.mask = (x <= 0) #ReLUによって潰されたところをTrueとして記録
         out = x.copy()
-        out[self.mask] = 0
+        out[self.mask] = 0   #mask が True の部分だけを 0 にする
     
         return out
     
