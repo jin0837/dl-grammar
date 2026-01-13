@@ -9,4 +9,29 @@ class TwoLayerNet:
 
     #レイヤの作成
     self.layers = OrderDict()
+    self.layers['Affine1'] = Affine(self.params['W1'], self.params['b1'])
+    self.layers['Relu1'] = Relu()
+    self.layers['Affine2'] = Affine(self.params['W2'], self.params['b2'])
+
+    self.lastLayer = SoftmaxWithLoss()
+
+  def predict(self, x):
+    for layer in self.layers.values():
+      x = layer.forward(x)
+  
+    return x
+
+  #xが入力でtが正解ラベル
+  def loss(self, x ,t):
+      y = self.predict(x)
+      return self.lastLayer.forward(y, t)
+
+  def accuracy(self, x, t):
+    y = self.predict(x)
+    y = np.argnax(y, axis=1)
+    if t.ndim = != 1 : t = np.argmax(t, axis=1)
+
     
+    
+
+
