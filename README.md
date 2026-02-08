@@ -1,2 +1,2 @@
 # dl-grammar
-0から作るDLの写経、実装
+「ゼロから作るDeep Learning」の写経、実装
